@@ -11,4 +11,10 @@ public class CalculadoraDescontoTDDTest {
         assertEquals(200.0,
                 calc.calcularValorFinal(200, false), 0.001);
     }
+
+    @Test
+    void descontoDezPorCento() {
+        assertEquals(540.0,
+                calc.calcularValorFinal(600, false), 0.001);
+    }
 }
