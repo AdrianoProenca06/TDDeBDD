@@ -3,18 +3,9 @@ public class CalculadoraDescontoTDD {
     public double calcularValorFinal(
             double valorItens, boolean vip) {
 
-        if (valorItens <= 0) {
-            throw new IllegalArgumentException(
-                    "O valor dos itens deve ser maior que zero.");
-        }
+        validarValor(valorItens);
 
-        double valorFinal = valorItens;
-
-        if (valorItens > 1000) {
-            valorFinal *= 0.80;
-        } else if (valorItens > 500) {
-            valorFinal *= 0.90;
-        }
+        double valorFinal = aplicarDesconto(valorItens);
 
         if (vip) {
             valorFinal *= 0.95;
@@ -25,5 +16,24 @@ public class CalculadoraDescontoTDD {
         }
 
         return valorFinal;
+    }
+
+    private void validarValor(double valorItens) {
+        if (valorItens <= 0) {
+            throw new IllegalArgumentException(
+                    "O valor dos itens deve ser maior que zero.");
+        }
+    }
+
+    private double aplicarDesconto(double valorItens) {
+        if (valorItens > 1000) {
+            return valorItens * 0.80;
+        }
+
+        if (valorItens > 500) {
+            return valorItens * 0.90;
+        }
+
+        return valorItens;
     }
 }
