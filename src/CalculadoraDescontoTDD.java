@@ -15,6 +15,10 @@ public class CalculadoraDescontoTDD {
             valorFinal *= 0.95;
         }
 
+        if (valorFinal < 100) {
+            valorFinal += 15;
+        }
+
         return valorFinal;
     }
 }
