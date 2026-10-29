@@ -41,4 +41,36 @@ public class CalculadoraDescontoTDDTest {
         assertThrows(IllegalArgumentException.class,
                 () -> calc.calcularValorFinal(0, false));
     }
+
+
+    @Test
+    void compraExatamente500() {
+        assertEquals(500.0,
+                calc.calcularValorFinal(500, false), 0.001);
+    }
+
+    @Test
+    void compraExatamente1000() {
+        assertEquals(900.0,
+                calc.calcularValorFinal(1000, false), 0.001);
+    }
+
+    @Test
+    void freteExatamente100() {
+        assertEquals(100.0,
+                calc.calcularValorFinal(100, false), 0.001);
+    }
+
+    @Test
+    void valorNegativo() {
+        assertThrows(IllegalArgumentException.class,
+                () -> calc.calcularValorFinal(-50, false));
+    }
+
+    @Test
+    void clienteVIPComFrete() {
+        assertEquals(110.0,
+                calc.calcularValorFinal(100, true), 0.001);
+    }
+
 }
