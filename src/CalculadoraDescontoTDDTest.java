@@ -23,4 +23,10 @@ public class CalculadoraDescontoTDDTest {
         assertEquals(960.0,
                 calc.calcularValorFinal(1200, false), 0.001);
     }
+
+    @Test
+    void descontoVIP() {
+        assertEquals(912.0,
+                calc.calcularValorFinal(1200, true), 0.001);
+    }
 }
