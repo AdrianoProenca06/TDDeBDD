@@ -29,4 +29,10 @@ public class CalculadoraDescontoTDDTest {
         assertEquals(912.0,
                 calc.calcularValorFinal(1200, true), 0.001);
     }
+
+    @Test
+    void freteParaPedidoPequeno() {
+        assertEquals(65.0,
+                calc.calcularValorFinal(50, false), 0.001);
+    }
 }
