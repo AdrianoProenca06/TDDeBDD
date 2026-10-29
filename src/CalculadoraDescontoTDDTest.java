@@ -35,4 +35,10 @@ public class CalculadoraDescontoTDDTest {
         assertEquals(65.0,
                 calc.calcularValorFinal(50, false), 0.001);
     }
+
+    @Test
+    void valorInvalido() {
+        assertThrows(IllegalArgumentException.class,
+                () -> calc.calcularValorFinal(0, false));
+    }
 }
