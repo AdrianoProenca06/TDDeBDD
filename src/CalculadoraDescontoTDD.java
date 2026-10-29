@@ -3,6 +3,11 @@ public class CalculadoraDescontoTDD {
     public double calcularValorFinal(
             double valorItens, boolean vip) {
 
+        if (valorItens <= 0) {
+            throw new IllegalArgumentException(
+                    "O valor dos itens deve ser maior que zero.");
+        }
+
         double valorFinal = valorItens;
 
         if (valorItens > 1000) {
